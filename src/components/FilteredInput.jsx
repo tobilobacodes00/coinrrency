@@ -4,7 +4,7 @@ const FilterInput = ({ filter, onFilterChange }) => {
             <input
              type="text"
              value={filter}
-             placeholder='Filter coins by name or symbol'
+             placeholder='Search coins by name or symbol'
              onChange={(e) => onFilterChange(e.target.value)}
              />
         </div>

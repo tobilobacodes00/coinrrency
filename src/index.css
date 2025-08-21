@@ -1,4 +1,6 @@
-/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,41 +8,51 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0e1117;
-  color: #f0f0f0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0c1426, #0f172a);
+  color: #f8fafc;
   line-height: 1.6;
   padding: 2rem;
+  min-height: 100vh;
 }
 
-h1 {
-  margin-bottom: 2rem;
-  font-size: 2rem;
-}
-
+/* Links */
 a {
-  color: #fff;
+  color: #60a5fa;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
+a:hover {
+  color: #3b82f6;
+}
+
+/* Grid for coins */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
+  margin: 2rem 0;
 }
 
+/* Coin card */
 .coin-card {
-  background-color: #161b22;
+  background: rgba(255, 255, 255, 0.08);
   padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease;
+  height: 250px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .coin-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.12);
 }
 
+/* Coin header */
 .coin-header {
   display: flex;
   align-items: center;
@@ -49,21 +61,78 @@ a {
 }
 
 .coin-image {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.coin-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 4px;
 }
 
 .symbol {
   font-size: 0.9rem;
-  color: #aaa;
+  color: #94a3b8;
+  font-weight: 500;
 }
 
-.positive {
-  color: #4caf50;
+.positive { 
+  color: #10b981;
+  font-weight: 600;
 }
 
-.negative {
-  color: #f44336;
+.negative { 
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Top Navigation */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  flex-wrap: wrap;
+}
+
+.top-nav h1 {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 700;
+  color: #f8fafc;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin: 0;
+}
+
+.top-nav nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.top-nav a {
+  color: #f1f5f9;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.top-nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #60a5fa;
+}
+
+.img-logo {
+  width: clamp(100px, 12vw, 140px);
+  height: auto;
 }
 
 /* Top Controls */
@@ -72,159 +141,161 @@ a {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
-  gap: 1rem;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   flex-wrap: wrap;
 }
 
-.top-controls .filter {
-  flex: 1;
-}
-
-.top-controls .controls {
-  flex-shrink: 0;
-}
-
-/* Limit Select */
-.controls {
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  gap: 0.75rem;
-}
-
-.controls label {
-  font-weight: bold;
-}
-
-.controls select {
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  background: #1c1f26;
-  color: white;
-  border: none;
-}
-
-/* Filter Input */
 .filter {
-  margin-bottom: 2rem;
+  flex: 1;
+  min-width: 240px;
 }
 
 .filter input {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   border-radius: 8px;
-  border: none;
-  background: #1c1f26;
-  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
   font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-/* Top Nav */
-.top-nav {
+.filter input:focus {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #60a5fa;
+  outline: none;
+}
+
+.filter input::placeholder {
+  color: #94a3b8;
+}
+
+.controls {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
-.top-nav a {
-  color: #58a6ff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.2s ease;
+.controls label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #cbd5e1;
 }
 
-.top-nav a:hover {
-  color: #4090db;
+.controls select {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.controls select:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.controls select:focus {
+  outline: none;
+  border-color: #60a5fa;
 }
 
 /* About Page */
 .about {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
-  background-color: #161b22;
+  background: rgba(255, 255, 255, 0.08);
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .about h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Baloo 2', cursive;
+  font-size: 2.5rem;
+  color: #f8fafc;
 }
 
 .about p {
-  margin-bottom: 1rem;
-  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  font-size: 1.1rem;
 }
 
 /* Coin Details */
 .coin-details-container {
-  max-width: 700px;
-  margin: 40px auto;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
   text-align: center;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  color: #333;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .coin-details-container a {
   display: inline-block;
-  margin-bottom: 20px;
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
-  transition: color 0.3s;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #60a5fa;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 .coin-details-container a:hover {
-  color: #0056b3;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .coin-details-title {
-  font-size: 36px;
-  margin-bottom: 10px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #f8fafc;
 }
 
 .coin-details-image {
   width: 100px;
-  margin-bottom: 20px;
+  height: 100px;
+  margin-bottom: 1.5rem;
+  border-radius: 50%;
 }
 
 .coin-details-description {
-  font-size: 16px;
-  margin-bottom: 20px;
-  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #cbd5e1;
+  line-height: 1.7;
 }
 
 .coin-details-info h3,
 .coin-details-info h4 {
-  margin: 10px 0;
-  color: #222;
+  margin: 1rem 0;
+  font-weight: 600;
+  color: #f8fafc;
 }
 
-.coin-details-info h3 {
-  font-size: 22px;
+.coin-details-info h3 { 
+  font-size: 1.3rem;
+  color: #60a5fa;
 }
 
-.coin-details-info h4 {
-  font-size: 16px;
-}
-
-.coin-details-links {
-  margin-top: 20px;
-}
-
-.coin-details-links a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.coin-details-links a:hover {
-  text-decoration: underline;
+.coin-details-info h4 { 
+  font-size: 1.1rem;
+  color: #cbd5e1;
 }
 
 /* Modal */
@@ -234,41 +305,171 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.3s ease;
   z-index: 1000;
 }
 
 .modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  position: relative;
+  background: rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+  padding: 2rem;
+  border-radius: 16px;
   width: 90%;
   max-width: 600px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   animation: slideUp 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from {
+@keyframes slideUp {
+  from { 
+    transform: translateY(30px);
     opacity: 0;
   }
-  to {
+  to { 
+    transform: translateY(0);
     opacity: 1;
   }
 }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
   }
-  to {
-    transform: translateY(0);
-    opacity: 1;
+
+  .top-nav {
+    padding: 0.5rem 0.75rem;
+    flex-wrap: nowrap;
+  }
+
+  .top-nav h1 {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .top-nav nav {
+    gap: 0.5rem;
+    flex-shrink: 1;
+    overflow-x: auto;
+  }
+
+  .top-nav a {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    white-space: nowrap;
+  }
+
+  .img-logo {
+    width: 70px;
+  }
+
+  .top-controls {
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .filter {
+    min-width: 100px;
+    flex: 1;
+    max-width: 150px;
+  }
+
+  .filter input {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+    min-width: 0;
+  }
+
+  .controls {
+    gap: 0.4rem;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  .controls label {
+    font-size: 0.8rem;
+  }
+
+  .controls select {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.8rem;
+    min-width: 80px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .coin-card {
+    height: auto;
+    min-height: 200px;
+  }
+
+  .about h1,
+  .coin-details-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-nav {
+    padding: 0.4rem 0.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+
+  .top-nav h1 {
+    font-size: 1rem;
+  }
+
+  .top-nav a {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .img-logo {
+    width: 60px;
+  }
+
+  .top-controls {
+    padding: 0.4rem 0.5rem;
+    gap: 0.4rem;
+    overflow-x: auto;
+  }
+
+  .filter {
+    min-width: 80px;
+    max-width: 120px;
+  }
+
+  .filter input {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.5rem;
+    min-width: 0;
+  }
+
+  .controls label {
+    font-size: 0.75rem;
+  }
+
+  .controls select {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem;
+    min-width: 70px;
+  }
+
+  .coin-card {
+    padding: 1rem;
   }
 }
